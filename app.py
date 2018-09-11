@@ -10,7 +10,7 @@ from lib.neo_pixel_string import *
 from random import *
 
 # LED strip configuration:
-LED_COUNT      = 8      # Number of LED pixels.
+LED_COUNT      = 400      # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
 BROKER_ADDRESS = "192.168.11.6"        # broker.mqttdashboard.com
 BROKER_PORT = 1883                 # 1883
