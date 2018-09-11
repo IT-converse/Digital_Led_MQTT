@@ -28,21 +28,21 @@ class NeoPixelString:
 		self.strip.begin()
 		self.all_off()
 
-	def set_color(self, color):
-		self.color = color
-		for i in range(0, self.strip.numPixels()):
-			self.strip.setPixelColor(i, color)
-		self.strip.show()
+	# def set_color(self, color):
+	# 	self.color = color
+	# 	for i in range(0, self.strip.numPixels()):
+	# 		self.strip.setPixelColor(i, color)
+	# 	self.strip.show()
 
-	def all_off(self):
-		keep_color = self.color
-		self.set_color(Color(0, 0, 0))
-		self.color = keep_color
-		self.state = NeoPixelString.OFF
+	# def all_off(self):
+	# 	keep_color = self.color
+	# 	self.set_color(Color(0, 0, 0))
+	# 	self.color = keep_color
+	# 	self.state = NeoPixelString.OFF
 
-	def all_on(self):
-		self.set_color(self.color)
-		self.state = NeoPixelString.ON
+	# def all_on(self):
+	# 	self.set_color(self.color)
+	# 	self.state = NeoPixelString.ON
 
 	global wheel
 	def wheel(pos):
