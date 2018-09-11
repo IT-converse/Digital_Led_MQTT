@@ -143,7 +143,8 @@ if __name__ == '__main__':
             elif (animation == 'colorwipe'):
                neopixelstring.colorWipe(Color(randint(0,255), randint(0,255), randint(0,255)))
             elif (animation == 'red'):
-                neopixelstring.colorWipe(Color(255, 255, 0))
+             #   neopixelstring.colorWipe(Color(0, 255, 0))
+                colorWipe(neopixelstring, Color(0, 255, 0)))
             elif (animation == 'theaterchase'):
                neopixelstring.theaterChase(Color(randint(0,127), randint(0,127), randint(0,127)))
         if not loopflag and justoutofloop:
