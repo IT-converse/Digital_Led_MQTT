@@ -12,7 +12,7 @@ from random import *
 # LED strip configuration:
 LED_COUNT      = 8      # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
-BROKER_ADDRESS = "10.0.0.100"        # broker.mqttdashboard.com
+BROKER_ADDRESS = "192.168.11.6"        # broker.mqttdashboard.com
 BROKER_PORT = 1883                 # 1883
 QOS_STATE_PUBLISH = 1
     # At most once (0)
