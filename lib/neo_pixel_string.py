@@ -9,20 +9,20 @@ import time
 
 class NeoPixelString:
 	# LED strip configuration:
-	LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
-	LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
-	LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
-	DEFAULT_BRIGHTNESS = 20
-	ON, OFF = range(2)
+	# LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
+	# LED_DMA        = 5       # DMA channel to use for generating signal (try 5)
+	# LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
+	# DEFAULT_BRIGHTNESS = 255
+	# ON, OFF = range(2)
 
-	def __init__(self, numberOfLeds, pin):
-		self.numberOfLeds = numberOfLeds
-		self.color = Color(255, 255, 255)
-		self.brightness = NeoPixelString.DEFAULT_BRIGHTNESS
+	# def __init__(self, numberOfLeds, pin):
+	# 	self.numberOfLeds = numberOfLeds
+	# 	self.color = Color(255, 255, 255)
+	# 	self.brightness = NeoPixelString.DEFAULT_BRIGHTNESS
 
-		self.strip = Adafruit_NeoPixel(numberOfLeds, pin,	\
-			NeoPixelString.LED_FREQ_HZ, NeoPixelString.LED_DMA, \
-			NeoPixelString.LED_INVERT, self.brightness)
+	# 	self.strip = Adafruit_NeoPixel(numberOfLeds, pin,	\
+	# 		NeoPixelString.LED_FREQ_HZ, NeoPixelString.LED_DMA, \
+	# 		NeoPixelString.LED_INVERT, self.brightness)
 
 		# Intialize the library (must be called once before other functions).
 		self.strip.begin()
