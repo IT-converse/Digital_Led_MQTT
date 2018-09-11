@@ -27,7 +27,7 @@ full_state_schema = {
     "type" : "object",
     "properties" : {
         "state" : {"enum" : ["ON", "OFF"]},
-        "effect" : {"enum" : ["rainbow", "rainbowcycle", "theaterchaserainbow", "colorwipe", "theaterchase"]},
+        "effect" : {"enum" : ["rainbow", "rainbowcycle", "red", "theaterchaserainbow", "colorwipe", "theaterchase"]},
         "brightness" : {"type": "number", "minimum": 0, "maximum": 255 },
         "color": {
             "type" : "object",
@@ -81,6 +81,8 @@ def on_message_full_state(client, userdata, message):
                animation = 'theaterchaserainbow'
             elif (data['effect'] == 'colorwipe'):
                animation = 'colorwipe'
+            elif (data['effect'] == 'red'):
+              animation = 'red'
             elif (data['effect'] == 'theaterchase'):
                animation = 'theaterchase'
         else:
@@ -140,6 +142,8 @@ if __name__ == '__main__':
                neopixelstring.theaterChaseRainbow()
             elif (animation == 'colorwipe'):
                neopixelstring.colorWipe(Color(randint(0,255), randint(0,255), randint(0,255)))
+            elif (animation == 'red'):
+                neopixelstring.colorWipe(255, 0, 0))   
             elif (animation == 'theaterchase'):
                neopixelstring.theaterChase(Color(randint(0,127), randint(0,127), randint(0,127)))
         if not loopflag and justoutofloop:
