@@ -107,7 +107,7 @@ def publish_state(client):
         }
     }
 
-    (status, mid) = client.publish("saito/bed/neopixels", json.dumps(json_state), \
+    (status, mid) = client.publish("pc-matic/boven", json.dumps(json_state), \
         QOS_STATE_PUBLISH, RETAIN_STATE_PUBLISH)
 
     if status != 0:
@@ -122,12 +122,12 @@ if __name__ == '__main__':
     client1.on_connect = on_connect
 
     # Home Assistant compatible
-    client1.message_callback_add("saito/bed/neopixels/set", on_message_full_state)
+    client1.message_callback_add("pc-matic/boven/set", on_message_full_state)
     time.sleep(1)
 
     client1.connect(BROKER_ADDRESS, BROKER_PORT)
     client1.loop_start()
-    client1.subscribe("saito/bed/neopixels/set")
+    client1.subscribe("pc-matic/boven/set")
 
     justoutofloop = False
     print ('Press Ctrl-C to quit.')
@@ -143,13 +143,12 @@ if __name__ == '__main__':
             elif (animation == 'colorwipe'):
                neopixelstring.colorWipe(Color(randint(0,255), randint(0,255), randint(0,255)))
             elif (animation == 'red'):
-             #   neopixelstring.colorWipe(Color(0, 255, 0))
-                colorWipe(neopixelstring, Color(0, 255, 0)))
+                neopixelstring.colorWipe(Color(0, 255, 0))
             elif (animation == 'theaterchase'):
                neopixelstring.theaterChase(Color(randint(0,127), randint(0,127), randint(0,127)))
         if not loopflag and justoutofloop:
             justoutofloop = False
-            client1.publish("saito/bed/neopixels/set", json_message, 0, False)
+            client1.publish("pc-matic/boven/set", json_message, 0, False)
         time.sleep(.1)
 
     # This should happen but it doesnt because CTRL-C kills process.
