@@ -13,11 +13,7 @@ Makes use of Jeremy Garffs neopixel lib for the Rpi. More info at:
 ```shell
 sudo apt-get update
 sudo apt-get install build-essential python-dev git scons swig
-cd ; git clone https://github.com/jgarff/rpi_ws281x.git
-cd rpi_ws281x
-scons
-cd python
-sudo python setup.py install
+git clone https://github.com/IT-converse/Digital_Led_MQTT.git
 ```
 
 ## Other requirements
@@ -80,19 +76,5 @@ State and commands are passed using json:
 Just use pm2 to start the script
 
 ```shell
-sudo su
-pm2 startup
-pm2 start app.py --name saito_bed_neopixels
-pm2 save
-```
-
-Or systemd
-
-```shell
-chmod +x app.py
-
-sudo su
-cp neopixel.service /etc/systemd/system
-systemctl enable neopixel.service
-systemctl start neopixel.service
+sudo python app.py
 ```
