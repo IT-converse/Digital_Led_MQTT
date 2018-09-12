@@ -14,11 +14,18 @@ LED_COUNT      = 400      # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
 BROKER_ADDRESS = "192.168.11.6"        # broker.mqttdashboard.com
 BROKER_PORT = 1883                 # 1883
+
+MQTT_TOPIC = "pc-matic/boven"
+MQTT_TOPIC_SET = "pc-matic/boven/set"
+
+
 QOS_STATE_PUBLISH = 1
     # At most once (0)
     # At least once (1)
     # Exactly once (2)
 RETAIN_STATE_PUBLISH = True
+
+
 
 loopflag = False
 animation = 'none'
@@ -105,7 +112,7 @@ def publish_state(client):
         }
     }
 
-    (status, mid) = client.publish("pc-matic/boven", json.dumps(json_state), \
+    (status, mid) = client.publish(MQTT_TOPIC, json.dumps(json_state), \
         QOS_STATE_PUBLISH, RETAIN_STATE_PUBLISH)
 
     if status != 0:
@@ -120,12 +127,12 @@ if __name__ == '__main__':
     client1.on_connect = on_connect
 
     # Home Assistant compatible
-    client1.message_callback_add("pc-matic/boven/set", on_message_full_state)
+    client1.message_callback_add(MQTT_TOPIC_SET, on_message_full_state)
     time.sleep(1)
 
     client1.connect(BROKER_ADDRESS, BROKER_PORT)
     client1.loop_start()
-    client1.subscribe("pc-matic/boven/set")
+    client1.subscribe(MQTT_TOPIC_SET)
 
     justoutofloop = False
     print ('Press Ctrl-C to quit.')
@@ -144,7 +151,7 @@ if __name__ == '__main__':
                neopixelstring.theaterChase(Color(randint(0,127), randint(0,127), randint(0,127)))
         if not loopflag and justoutofloop:
             justoutofloop = False
-            client1.publish("pc-matic/boven/set", json_message, 0, False)
+            client1.publish(MQTT_TOPIC_SET, json_message, 0, False)
         time.sleep(.1)
 
     # This should happen but it doesnt because CTRL-C kills process.
