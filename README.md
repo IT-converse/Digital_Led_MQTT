@@ -13,6 +13,19 @@ Makes use of Jeremy Garffs neopixel lib for the Rpi. More info at:
 ```shell
 sudo apt-get update
 sudo apt-get install build-essential python-dev git scons swig
+cd ; git clone https://github.com/jgarff/rpi_ws281x.git
+cd rpi_ws281x
+scons
+cd python
+sudo python setup.py install
+```
+
+
+## Installing Digital led mqtt
+
+```shell
+sudo apt-get update
+sudo apt-get install build-essential python-dev git scons swig python3-pip
 git clone https://github.com/IT-converse/Digital_Led_MQTT.git
 ```
 
@@ -21,8 +34,8 @@ git clone https://github.com/IT-converse/Digital_Led_MQTT.git
 You also need jsonschema and paho mqtt libs.
 
 ```shell
-sudo pip install jsonschema
-sudo pip install paho-mqtt
+sudo pip3 install jsonschema
+sudo pip3 install paho-mqtt
 ```
 
 ## Hardware
