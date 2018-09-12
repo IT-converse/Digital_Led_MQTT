@@ -90,3 +90,20 @@ Just use pm2 to start the script
 ```shell
 sudo python app.py
 ```
+
+## Start after reboot
+
+```shell
+sudo nano /etc/rc.local
+```
+
+add you path before the `exit 0`
+
+```shell
+
+sudo python /home/pi/Digital_Led_MQTT/app.py &
+
+```
+
+test it with a `sudo reboot`
+

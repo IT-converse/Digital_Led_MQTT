@@ -15,8 +15,8 @@ LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
 BROKER_ADDRESS = "192.168.11.6"        # broker.mqttdashboard.com
 BROKER_PORT = 1883                 # 1883
 
-MQTT_TOPIC = "pc-matic/boven"
-MQTT_TOPIC_SET = "pc-matic/boven/set"
+MQTT_TOPIC = "fill_in"
+MQTT_TOPIC_SET = "fill_in/set"
 
 
 QOS_STATE_PUBLISH = 1
