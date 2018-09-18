@@ -124,7 +124,7 @@ if __name__ == '__main__':
     neopixelstring = NeoPixelString(LED_COUNT, LED_PIN)
     mac = get_mac()
 
-    client1 = mqtt.Client(str(mac) + "-python_client")
+    client1 = mqtt.Client(CLIENT_ID + "-python_client")
     client1.on_connect = on_connect
 
     # Home Assistant compatible
