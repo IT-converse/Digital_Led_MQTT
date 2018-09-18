@@ -24,7 +24,7 @@ sudo python setup.py install
 ## Installing Digital led mqtt
 
 ```shell
-sudo apt-get update
+cd sudo apt-get update
 git clone https://github.com/IT-converse/Digital_Led_MQTT.git
 ```
 
