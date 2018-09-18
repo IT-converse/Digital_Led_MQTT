@@ -12,11 +12,12 @@ from random import *
 # LED strip configuration:
 LED_COUNT      = 400      # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM!).
-BROKER_ADDRESS = "192.168.11.6"        # broker.mqttdashboard.com
+BROKER_ADDRESS = "192.168.0.0"        # broker.mqttdashboard.com
 BROKER_PORT = 1883                 # 1883
 
 MQTT_TOPIC = "fill_in"
 MQTT_TOPIC_SET = "fill_in/set"
+CLIENT_ID = 5646546546464646468
 
 
 QOS_STATE_PUBLISH = 1
@@ -52,7 +53,7 @@ neopixelstring = None
 
 def on_connect(client, userdata, flags, rc):
     m = "Connected flags" + str(flags) + "result code " \
-        + str(rc) + "client1_id " + str(client)
+        + str(rc) + CLIENT_ID + str(client)
     print(m)
 
 # This is an interface that is compatible with Home Assistant MQTT JSON Light
