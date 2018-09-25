@@ -132,3 +132,17 @@ static ip_address=192.168.11.41/24
 static routers=192.168.11.1
 static domain_name_servers=192.168.11.1
 ```
+
+## SSH PI
+
+add to `config.txt`
+
+```
+# Enable the serial port
+enable_uart=1
+​
+# Disable bluetooth
+dtoverlay=pi3-disable-bt
+```
+
+add a file 'ssh'
