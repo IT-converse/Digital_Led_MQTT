@@ -21,13 +21,6 @@ sudo python setup.py install
 ```
 
 
-## Installing Digital led mqtt
-
-```shell
-cd sudo apt-get update
-git clone https://github.com/IT-converse/Digital_Led_MQTT.git
-```
-
 ## Other requirements
 
 You also need jsonschema and paho mqtt libs.
@@ -36,6 +29,15 @@ You also need jsonschema and paho mqtt libs.
 sudo pip install jsonschema
 sudo pip install paho-mqtt
 ```
+
+
+## Installing Digital led mqtt
+
+```shell
+cd sudo apt-get update
+git clone https://github.com/IT-converse/digital_Led_MQTT.git
+```
+
 
 ## Hardware
 
@@ -107,3 +109,26 @@ sudo python /home/pi/Digital_Led_MQTT/app.py &
 
 test it with a `sudo reboot`
 
+
+
+## Static IP
+
+```shell
+sudo nano /etc/dhcpcd.conf
+```
+
+```shell
+
+
+interface eth0
+
+static ip_address=192.168.11.41/24
+static routers=192.168.11.1
+static domain_name_servers=192.168.11.1
+
+interface wlan0
+
+static ip_address=192.168.11.41/24
+static routers=192.168.11.1
+static domain_name_servers=192.168.11.1
+```
